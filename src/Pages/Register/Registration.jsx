@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
-import animationData from "../../assets/Animation.json";
+import animationData from "../../assets/Animation.json"; // Your Lottie JSON file
 import AuthContext from "../../Contexts/AuthContext";
 
 const Registration = () => {
@@ -70,14 +70,14 @@ const Registration = () => {
     }
 
     // Output the form data (In real case, you would send it to your API)
-    console.log({
-      fullName,
-      email,
-      password,
-      role,
-      skills,
-      acceptTerms,
-    });
+    // console.log({
+    //   fullName,
+    //   email,
+    //   password,
+    //   role,
+    //   skills,
+    //   acceptTerms,
+    // });
 
     // Create a password-based account
     createUser(email, password)
@@ -87,29 +87,29 @@ const Registration = () => {
       .catch((error) => {
         console.error("Error Message", error);
       });
-    alert("Successfully Registration ✔ ");
+    alert("Successfully Registered ✔ ");
     form.reset();
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-indigo-50 via-white to-teal-50 p-4">
-      <div className="flex w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden">
-        {/* Lottie Animation on the Left */}
-        <div className="flex-1 bg-gradient-to-br from-indigo-100 to-teal-100 flex justify-center items-center p-8">
+      <div className="flex flex-col items-center w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden">
+        {/* Lottie Animation at the Top */}
+        <div className="w-full bg-gradient-to-br from-indigo-100 to-teal-100 flex justify-center items-center p-8">
           <Lottie
             animationData={animationData}
             loop={true}
             className="max-w-full max-h-full transform transition-transform duration-300 hover:scale-105"
             style={{
-              width: "100%",
+              width: "150px",
               height: "auto",
-              maxWidth: "450px",
-              maxHeight: "450px",
+              maxWidth: "350px",
+              maxHeight: "350px",
             }}
           />
         </div>
 
-        {/* Registration Form on the Right */}
+        {/* Registration Form on the Bottom */}
         <div className="w-full max-w-md bg-white p-10 space-y-6 relative">
           <div className="absolute top-4 right-4 text-sm text-gray-500">
             Step 1/2
