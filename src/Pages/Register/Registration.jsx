@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import animationData from "../../assets/Animation.json";
+import AuthContext from "../../Contexts/AuthContext";
 
 const Registration = () => {
+  const { createUser } = useContext(AuthContext);
+
   // Define available roles and their corresponding skills
   const roles = {
     developer: ["JavaScript", "React", "Node.js", "Python", "Java"],
@@ -75,6 +78,17 @@ const Registration = () => {
       skills,
       acceptTerms,
     });
+
+    // Create a password-based account
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.error("Error Message", error);
+      });
+    alert("Successfully Registration ✔ ");
+    form.reset();
   };
 
   return (
@@ -112,8 +126,8 @@ const Registration = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Input Fields with Enhanced Styling */}
             <div>
-              <label 
-                htmlFor="fullName" 
+              <label
+                htmlFor="fullName"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Full Name
@@ -130,8 +144,8 @@ const Registration = () => {
             </div>
 
             <div>
-              <label 
-                htmlFor="email" 
+              <label
+                htmlFor="email"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Email Address
@@ -148,8 +162,8 @@ const Registration = () => {
             </div>
 
             <div>
-              <label 
-                htmlFor="password" 
+              <label
+                htmlFor="password"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Password
@@ -166,8 +180,8 @@ const Registration = () => {
             </div>
 
             <div>
-              <label 
-                htmlFor="confirmPassword" 
+              <label
+                htmlFor="confirmPassword"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Confirm Password
@@ -184,8 +198,8 @@ const Registration = () => {
             </div>
 
             <div>
-              <label 
-                htmlFor="role" 
+              <label
+                htmlFor="role"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Role
@@ -207,8 +221,8 @@ const Registration = () => {
             </div>
 
             <div>
-              <label 
-                htmlFor="skills" 
+              <label
+                htmlFor="skills"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Skills
@@ -238,8 +252,8 @@ const Registration = () => {
                 className="h-4 w-4 text-indigo-600 border-gray-300 rounded 
                   focus:ring-indigo-500"
               />
-              <label 
-                htmlFor="acceptTerms" 
+              <label
+                htmlFor="acceptTerms"
                 className="ml-2 text-sm text-gray-700"
               >
                 I agree to the{" "}
@@ -263,8 +277,8 @@ const Registration = () => {
 
           <div className="text-center text-sm mt-4 text-gray-600">
             Already have an account?{" "}
-            <Link 
-              to="/login" 
+            <Link
+              to="/login"
               className="text-indigo-600 font-semibold hover:underline"
             >
               Log in
