@@ -6,6 +6,7 @@ const MainLayout = () => {
   return (
     <div className="max-w-7xl mx-auto">
       <Navbar/>
+      
       <Outlet />
       <Footer/>
     </div>
