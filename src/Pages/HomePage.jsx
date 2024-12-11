@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import JobBoxBanner from "./Banner";
 
 const HomePage = () => {
-    return (
-        <div>
-            HomePage
-        </div>
-    );
+  return (
+    <div>
+      <JobBoxBanner />
+    </div>
+  );
 };
 
 export default HomePage;

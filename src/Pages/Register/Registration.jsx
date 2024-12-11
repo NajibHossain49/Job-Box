@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import animationData from "../../assets/Animation.json"; // Your Lottie JSON file
 import AuthContext from "../../Contexts/AuthContext";
+import GoogleLogin from "../GoogleLogin";
 
 const Registration = () => {
   const { createUser } = useContext(AuthContext);
@@ -242,6 +243,10 @@ const Registration = () => {
                   </option>
                 ))}
               </select>
+            </div>
+
+            <div className="flex justify-center items-center">
+              <GoogleLogin />
             </div>
 
             <div className="flex items-center">

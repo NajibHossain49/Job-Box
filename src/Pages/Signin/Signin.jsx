@@ -6,8 +6,8 @@ import AuthContext from "../../Contexts/AuthContext";
 
 const LoginPage = () => {
   const { signIn } = useContext(AuthContext);
-  const [error, setError] = useState(null);  
-  const [formError, setFormError] = useState(null); 
+  const [error, setError] = useState(null);
+  const [formError, setFormError] = useState(null);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const LoginPage = () => {
     // Check if both fields are filled
     if (!username || !password) {
       setFormError("Please fill out both fields.");
-      setError(null); 
+      setError(null);
     } else {
       setFormError(null);
       // Sign in a user with an email address and password
@@ -70,16 +70,12 @@ const LoginPage = () => {
 
               {/* Error Message for Missing Fields */}
               {formError && (
-                <div className="text-red-500 text-center mt-2">
-                  {formError}
-                </div>
+                <div className="text-red-500 text-center mt-2">{formError}</div>
               )}
 
               {/* Error Message for Invalid Credentials */}
               {error && (
-                <div className="text-red-500 text-center mt-2">
-                  {error}
-                </div>
+                <div className="text-red-500 text-center mt-2">{error}</div>
               )}
 
               {/* Login Button */}
