@@ -1,8 +1,10 @@
 import React from 'react';
 import { MapPin, Calendar, DollarSign, Briefcase } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const JobListingCard = ({ jobListing }) => {
+const  JobListingCard = ({ jobListing }) => {
   const {
+    _id,
     title,
     company,
     location,
@@ -14,6 +16,7 @@ const JobListingCard = ({ jobListing }) => {
     responsibilities,
     company_logo
   } = jobListing;
+  console.log(jobListing);
 
   return (
     <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
@@ -87,12 +90,12 @@ const JobListingCard = ({ jobListing }) => {
 
       {/* Application Button */}
       <div className="p-4 bg-gray-50">
-        <a 
-          href={`mailto:${jobListing.hr_email}?subject=Application for ${title} at ${company}`}
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
-        >
-          Apply Now
-        </a>
+      <Link
+        to={`/job-details/${jobListing._id}`} // Use the unique _id for dynamic routing
+        className="block mt-4 bg-blue-500 hover:bg-blue-600 text-white text-center py-2 px-4 rounded transition duration-300"
+      >
+        View Details
+      </Link>
       </div>
     </div>
   );

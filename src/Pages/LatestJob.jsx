@@ -11,7 +11,7 @@ const LatestJobs = () => {
     const fetchJobs = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("http://localhost:5000/jobs");
+        const response = await fetch("http://localhost:5000/LatestJobs");
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
